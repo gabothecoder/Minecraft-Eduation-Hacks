@@ -1,0 +1,50 @@
+player.onChat("\\\\commandoutput-{/Gamemode=a=true}", function () {
+    if (player.name() == hacker_name) {
+        gameplay.setGameMode(
+        ADVENTURE,
+        mobs.target(LOCAL_PLAYER)
+        )
+    }
+})
+player.onChat("\\\\commandoutput-{kill_all=true}", function () {
+    if (player.name() == hacker_name) {
+        mobs.kill(
+        mobs.target(ALL_PLAYERS)
+        )
+    }
+})
+player.onChat("\\\\commandoutput-{/Gamemode=s=true}", function () {
+    if (player.name() == hacker_name) {
+        gameplay.setGameMode(
+        SURVIVAL,
+        mobs.target(LOCAL_PLAYER)
+        )
+    }
+})
+player.onChat("\\\\commandoutput-{/Gamemode=c=true}", function () {
+    if (player.name() == hacker_name) {
+        gameplay.setGameMode(
+        CREATIVE,
+        mobs.target(LOCAL_PLAYER)
+        )
+    }
+})
+player.onChat("\\\\hacks-{you_true}", function () {
+    if (Hacks_Allow == 0) {
+        Hacks_Allow = 1
+        hacker_name = player.name()
+        gameplay.title(mobs.target(LOCAL_PLAYER), "Hacks on", "for " + player.name())
+    } else {
+        gameplay.title(mobs.target(LOCAL_PLAYER), "Oh No " + player.name(), "Someone has used the command before you! sorry :(")
+    }
+})
+player.onChat("\\\\commandoutput-{/wb=###}", function () {
+    if (player.name() == hacker_name) {
+        player.execute(
+        "/worldbuilder"
+        )
+    }
+})
+let hacker_name = ""
+let Hacks_Allow = 0
+Hacks_Allow = 0
